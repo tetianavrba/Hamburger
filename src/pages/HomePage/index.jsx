@@ -18,7 +18,7 @@ export const HomePage = () => {
           <button className="menu__btn" onClick={handleClick}></button>
           <div className="menu__items">
             <MenuItem text="Domů" onSelect={handleSelektItem} />
-            <MenuItem text="Naše nabídka" />
+            <MenuItem text="Naše nabídka" onSelect={handleSelektItem} />
             <MenuItem text="Náš tým" onSelect={handleSelektItem} />
             <MenuItem text="Blog" onSelect={handleSelektItem} />
             <MenuItem text="Kontakt" onSelect={handleSelektItem} />
