@@ -4,8 +4,10 @@ import './style.css';
 
 export const HomePage = () => {
   const [menuOpened, setMenuOpened] = useState(false);
-  const handleSelektItem = () => {
+  const [pageTitle, setPageTitle] = useState('Domů');
+  const handleSelectItem = (page) => {
     setMenuOpened(false);
+    setPageTitle(page);
   };
   const handleClick = () => {
     setMenuOpened(!menuOpened);
@@ -17,16 +19,25 @@ export const HomePage = () => {
         <div className={`menu ${menuOpened ? 'menu--open' : 'menu--closed'}`}>
           <button className="menu__btn" onClick={handleClick}></button>
           <div className="menu__items">
-            <MenuItem text="Domů" onSelect={handleSelektItem} />
-            <MenuItem text="Naše nabídka" onSelect={handleSelektItem} />
-            <MenuItem text="Náš tým" onSelect={handleSelektItem} />
-            <MenuItem text="Blog" onSelect={handleSelektItem} />
-            <MenuItem text="Kontakt" onSelect={handleSelektItem} />
+            <MenuItem text="Domů" onSelect={() => handleSelectItem('Domů')} />
+            <MenuItem
+              text="Naše nabídka"
+              onSelect={() => handleSelectItem('Naše nabídka')}
+            />
+            <MenuItem
+              text="Náš tým"
+              onSelect={() => handleSelectItem('Náš tým')}
+            />
+            <MenuItem text="Blog" onSelect={() => handleSelectItem('Blog')} />
+            <MenuItem
+              text="Kontakt"
+              onSelect={() => handleSelectItem('Kontakt')}
+            />
           </div>
         </div>
       </header>
       <main>
-        <h1>Domů</h1>
+        <h1>{pageTitle}</h1>
       </main>
     </>
   );
